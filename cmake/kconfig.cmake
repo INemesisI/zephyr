@@ -108,6 +108,7 @@ list(SORT config_files)
 set(
   merge_config_files
   ${BOARD_DEFCONFIG}
+  ${shield_conf_files}
   ${CONF_FILE_AS_LIST}
   ${OVERLAY_CONFIG_AS_LIST}
   ${EXTRA_KCONFIG_OPTIONS_FILE}
