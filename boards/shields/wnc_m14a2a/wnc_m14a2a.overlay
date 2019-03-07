@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2019 Foundries.io
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	/*
+	 * These aliases are kind of a HACK, the WNC-M14A2A modem DTS needs
+	 * to have several GPIOs defined. For example power GPIO:
+	 * mdm-power-gpios-gpio = <&gpio_controller pin flags>
+	 *
+	 * These settings are processed into the generated include as:
+	 * DT_WNC_M14A2A_0_MDM_POWER_GPIOS_GPIO_CONTROLLER = "<controller name>"
+	 * DT_WNC_M14A2A_0_MDM_POWER_GPIOS_GPIO_PIN = <pin>
+	 * DT_WNC_M14A2A_0_MDM_POWER_GPIOS_GPIO_FLAGS = <flags>
+	 *
+	 * The labels for the Arduino pins don't process correctly when
+	 * used like: mdm-power-gpios-gpio = &arduino_d2;
+	 * so instead we define the aliases below which are processed
+	 * identically into the generated include.
+	 */
+	aliases {
+		dt-wnc-m14a2a-0-mdm-boot-mode-sel-gpios = &arduino_d1;
+		dt-wnc-m14a2a-0-mdm-power-gpios = &arduino_d2;
+		dt-wnc-m14a2a-0-mdm-keep-awake-gpios = &arduino_d6;
+		dt-wnc-m14a2a-0-mdm-reset-gpios = &arduino_d8;
+		dt-wnc-m14a2a-0-mdm-shld-trans-ena-gpios = &arduino_d9;
+	};
+};
