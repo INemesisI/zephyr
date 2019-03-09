@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2019 Foundries.io
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		dt-ublox-sara-r41xx-0-mdm-power-gpios = &arduino_d5;
+		dt-ublox-sara-r41xx-0-mdm-reset-gpios = &arduino_d6;
+	};
+};
+
+&arduino_serial {
+	current-speed = <115200>;
+	status = "ok";
+
+	sara_r41xx {
+		compatible = "ublox,sara-r41xx";
+		label = "ublox-sara-r41xx";
+		status = "ok";
+	};
+};
