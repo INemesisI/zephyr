@@ -72,6 +72,76 @@
 			gpios = <&gpioa 4 GPIO_INT_ACTIVE_LOW>;
 		};
 	};
+
+	header_pins {
+		compatible = "arduino-header-r3";
+		arduino_a0: pin-a0 {
+			gpios = <&gpiob 2 0>;
+		};
+		arduino_a1: pin-a1 {
+			gpios = <&gpiob 3 0>;
+		};
+		arduino_a2: pin-a2 {
+			gpios = <&gpiob 10 0>;
+		};
+		arduino_a3: pin-a3 {
+			gpios = <&gpiob 11 0>;
+		};
+		arduino_a4: pin-a4 {
+			gpios = <&gpioc 11 0>;
+		};
+		arduino_a5: pin-a5 {
+			gpios = <&gpioc 10 0>;
+		};
+		arduino_d0: pin-d0 {
+			gpios = <&gpioc 16 0>;
+		};
+		arduino_d1: pin-d1 {
+			gpios = <&gpioc 17 0>;
+		};
+		arduino_d2: pin-d2 {
+			gpios = <&gpiob 9 0>;
+		};
+		arduino_d3: pin-d3 {
+			gpios = <&gpioa 1 0>;
+		};
+		arduino_d4: pin-d4 {
+			gpios = <&gpiob 23 0>;
+		};
+		arduino_d5: pin-d5 {
+			gpios = <&gpioa 2 0>;
+		};
+		arduino_d6: pin-d6 {
+			gpios = <&gpioc 2 0>;
+		};
+		arduino_d7: pin-d7 {
+			gpios = <&gpioc 3 0>;
+		};
+		arduino_d8: pin-d8 {
+			gpios = <&gpioc 12 0>;
+		};
+		arduino_d9: pin-d9 {
+			gpios = <&gpioc 4 0>;
+		};
+		arduino_d10: pin-d10 {
+			gpios = <&gpiod 0 0>;
+		};
+		arduino_d11: pin-d11 {
+			gpios = <&gpiod 2 0>;
+		};
+		arduino_d12: pin-d12 {
+			gpios = <&gpiod 3 0>;
+		};
+		arduino_d13: pin-d13 {
+			gpios = <&gpiod 1 0>;
+		};
+		arduino_d14: pin-d14 {
+			gpios = <&gpioe 25 0>;
+		};
+		arduino_d15: pin-d15 {
+			gpios = <&gpioe 24 0>;
+		};
+	};
 };
 
 arduino_serial: &uart3 {};
