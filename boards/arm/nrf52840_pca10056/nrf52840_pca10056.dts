@@ -61,6 +61,76 @@
 		};
 	};
 
+	header_pins {
+		compatible = "arduino-header-r3";
+		arduino_a0: pin-a0 {
+			gpios = <&gpio0 3 0>;
+		};
+		arduino_a1: pin-a1 {
+			gpios = <&gpio0 4 0>;
+		};
+		arduino_a2: pin-a2 {
+			gpios = <&gpio0 28 0>;
+		};
+		arduino_a3: pin-a3 {
+			gpios = <&gpio0 29 0>;
+		};
+		arduino_a4: pin-a4 {
+			gpios = <&gpio0 30 0>;
+		};
+		arduino_a5: pin-a5 {
+			gpios = <&gpio0 31 0>;
+		};
+		arduino_d0: pin-d0 {
+			gpios = <&gpio1 1 0>;
+		};
+		arduino_d1: pin-d1 {
+			gpios = <&gpio1 2 0>;
+		};
+		arduino_d2: pin-d2 {
+			gpios = <&gpio1 3 0>;
+		};
+		arduino_d3: pin-d3 {
+			gpios = <&gpio1 4 0>;
+		};
+		arduino_d4: pin-d4 {
+			gpios = <&gpio1 5 0>;
+		};
+		arduino_d5: pin-d5 {
+			gpios = <&gpio1 6 0>;
+		};
+		arduino_d6: pin-d6 {
+			gpios = <&gpio1 7 0>;
+		};
+		arduino_d7: pin-d7 {
+			gpios = <&gpio1 8 0>;
+		};
+		arduino_d8: pin-d8 {
+			gpios = <&gpio1 10 0>;
+		};
+		arduino_d9: pin-d9 {
+			gpios = <&gpio1 11 0>;
+		};
+		arduino_d10: pin-d10 {
+			gpios = <&gpio1 12 0>;
+		};
+		arduino_d11: pin-d11 {
+			gpios = <&gpio1 13 0>;
+		};
+		arduino_d12: pin-d12 {
+			gpios = <&gpio1 14 0>;
+		};
+		arduino_d13: pin-d13 {
+			gpios = <&gpio1 15 0>;
+		};
+		arduino_d14: pin-d14 {
+			gpios = <&gpio0 26 0>;
+		};
+		arduino_d15: pin-d15 {
+			gpios = <&gpio0 27 0>;
+		};
+	};
+
 	/* These aliases are provided for compatibility with samples */
 	aliases {
 		led0 = &led0;
