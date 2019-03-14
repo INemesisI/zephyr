@@ -45,6 +45,76 @@
 		sw0 = &user_button;
 		eswifi0 = &wifi0;
 	};
+
+	header_pins {
+		compatible = "arduino-header-r3";
+		arduino_a0: pin-a0 {
+			gpios = <&gpioc 5 0>;
+		};
+		arduino_a1: pin-a1 {
+			gpios = <&gpioc 4 0>;
+		};
+		arduino_a2: pin-a2 {
+			gpios = <&gpioc 3 0>;
+		};
+		arduino_a3: pin-a3 {
+			gpios = <&gpioc 2 0>;
+		};
+		arduino_a4: pin-a4 {
+			gpios = <&gpioc 1 0>;
+		};
+		arduino_a5: pin-a5 {
+			gpios = <&gpioc 0 0>;
+		};
+		arduino_d0: pin-d0 {
+			gpios = <&gpioa 1 0>;
+		};
+		arduino_d1: pin-d1 {
+			gpios = <&gpioa 0 0>;
+		};
+		arduino_d2: pin-d2 {
+			gpios = <&gpiod 14 0>;
+		};
+		arduino_d3: pin-d3 {
+			gpios = <&gpiob 0 0>;
+		};
+		arduino_d4: pin-d4 {
+			gpios = <&gpioa 3 0>;
+		};
+		arduino_d5: pin-d5 {
+			gpios = <&gpiob 4 0>;
+		};
+		arduino_d6: pin-d6 {
+			gpios = <&gpiob 1 0>;
+		};
+		arduino_d7: pin-d7 {
+			gpios = <&gpioa 4 0>;
+		};
+		arduino_d8: pin-d8 {
+			gpios = <&gpiob 2 0>;
+		};
+		arduino_d9: pin-d9 {
+			gpios = <&gpioa 15 0>;
+		};
+		arduino_d10: pin-d10 {
+			gpios = <&gpioa 2 0>;
+		};
+		arduino_d11: pin-d11 {
+			gpios = <&gpioa 7 0>;
+		};
+		arduino_d12: pin-d12 {
+			gpios = <&gpioa 6 0>;
+		};
+		arduino_d13: pin-d13 {
+			gpios = <&gpioa 5 0>;
+		};
+		arduino_d14: pin-d14 {
+			gpios = <&gpiob 9 0>;
+		};
+		arduino_d15: pin-d15 {
+			gpios = <&gpiob 8 0>;
+		};
+	};
 };
 
 arduino_i2c: &i2c1 {};
