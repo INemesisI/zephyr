@@ -275,6 +275,93 @@ __deprecated int lwm2m_device_set_pwrsrc_current_ma(int index, int current_ma);
  */
 int lwm2m_device_add_err(u8_t error_code);
 
+#if defined(CONFIG_LWM2M_CONN_MON_OBJ_SUPPORT)
+/**
+ * @brief Register an available net bearer with the LwM2M Connectivity
+ *        Monitoring object.
+ *
+ * @param[in] bearer_id Network Bearer ID.
+ *
+ * @return The newly added index of the net bearer.  The index is used
+ *         for removing the net bearer later.
+ */
+int lwm2m_connmon_add_bearer(u8_t bearer_id);
+
+/**
+ * @brief Remove an available net bearer previously registered in the LwM2M
+ *        Connectivity Monitoring object.
+ *
+ * @param[in] index Index of the network bearer returned by
+ *                  lwm2m_connmon_add_bearer().
+ *
+ * @return 0 for success or negative in case of error.
+ */
+int lwm2m_connmon_remove_bearer(int index);
+
+/**
+ * @brief Register an IP address with the LwM2M Connectivity
+ *        Monitoring object.
+ *
+ * @param[in] addr IP address to add.
+ *
+ * @return The newly added index of the IP address.  The index is used
+ *         to remove it later.
+ */
+int lwm2m_connmon_add_ip_address(char *addr);
+
+/**
+ * @brief Remove an IP address previously registered in the LwM2M
+ *        Connectivity Monitoring object.
+ *
+ * @param[in] index Index of the IP address returned by
+ *                  lwm2m_connmon_add_ip_address().
+ *
+ * @return 0 for success or negative in case of error.
+ */
+int lwm2m_connmon_remove_ip_address(int index);
+
+/**
+ * @brief Register a Router IP address with the LwM2M Connectivity
+ *        Monitoring object.
+ *
+ * @param[in] addr Router IP address to add.
+ *
+ * @return The newly added index of the IP address.  The index is used
+ *         to remove it later.
+ */
+int lwm2m_connmon_add_router_ip_address(char *addr);
+
+/**
+ * @brief Remove a Router IP address previously registered in the LwM2M
+ *        Connectivity Monitoring object.
+ *
+ * @param[in] index Index of the Router IP address returned by
+ *                  lwm2m_connmon_add_router_ip_address().
+ *
+ * @return 0 for success or negative in case of error.
+ */
+int lwm2m_connmon_remove_ip_address(int index);
+
+/**
+ * @brief Register an APN with the LwM2M Connectivity Monitoring object.
+ *
+ * @param[in] apn APN to add.
+ *
+ * @return The newly added index of the APN.  The index is used to remove it
+ * later.
+ */
+int lwm2m_connmon_add_apn(char *apn);
+
+/**
+ * @brief Remove an APN previously registered in the LwM2M
+ *        Connectivity Monitoring object.
+ *
+ * @param[in] index Index of the APN returned by lwm2m_connmon_add_apn().
+ *
+ * @return 0 for success or negative in case of error.
+ */
+int lwm2m_connmon_remove_apn(int index);
+#endif /* CONFIG_LWM2M_CONN_MON_OBJ_SUPPORT */
 
 /**
  * @brief LWM2M Firmware Update object states
