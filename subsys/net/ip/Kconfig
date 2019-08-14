@@ -555,6 +555,10 @@ config NET_DEFAULT_IF_CANBUS_RAW
 	depends on NET_L2_CANBUS_RAW
 
 
+config NET_DEFAULT_IF_OFFLOAD
+	bool "Socket offload interface"
+	depends on NET_L2_OFFLOAD
+
 endchoice
 
 config NET_PKT_TIMESTAMP
@@ -616,6 +620,7 @@ source "subsys/net/ip/Kconfig.mgmt"
 source "subsys/net/ip/Kconfig.stats"
 
 config NET_OFFLOAD
+	select NET_L2_OFFLOAD
 	bool "Offload IP stack [EXPERIMENTAL]"
 	help
 	  Enables TCP/IP stack to be offload to a co-processor.

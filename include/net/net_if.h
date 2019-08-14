@@ -2077,6 +2077,8 @@ struct net_if_api {
 	static struct net_if_dev (NET_IF_DEV_GET_NAME(dev_name, sfx)) __used \
 	__attribute__((__section__(".net_if_dev.data"))) = {		\
 		.dev = &(__device_##dev_name),				\
+		.l2 = &(NET_L2_GET_NAME(OFFLOAD)),				\
+		.l2_data = &(NET_L2_GET_DATA(dev_name, sfx)),		\
 		.mtu = _mtu,						\
 	};								\
 	static struct net_if						\
@@ -2173,6 +2175,7 @@ struct net_if_api {
 				data, cfg_info, prio, api, mtu)	\
 	DEVICE_AND_API_INIT(dev_name, drv_name, init_fn, data,	\
 			    cfg_info, POST_KERNEL, prio, api);	\
+	NET_L2_DATA_INIT(dev_name, 0, NET_L2_GET_CTX_TYPE(OFFLOAD_L2));		\
 	NET_IF_OFFLOAD_INIT(dev_name, 0, mtu)
 
 #ifdef __cplusplus

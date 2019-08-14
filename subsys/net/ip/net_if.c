@@ -397,7 +397,7 @@ struct net_if *net_if_get_default(void)
 	iface = net_if_get_first_by_type(&NET_L2_GET_NAME(DUMMY));
 #endif
 #if defined(CONFIG_NET_DEFAULT_IF_OFFLOAD)
-	iface = net_if_get_first_by_type(NULL);
+	iface = net_if_get_first_by_type(&NET_L2_GET_NAME(OFFLOAD));
 #endif
 #if defined(CONFIG_NET_DEFAULT_IF_CANBUS_RAW)
 	iface = net_if_get_first_by_type(&NET_L2_GET_NAME(CANBUS_RAW));
@@ -3341,7 +3341,6 @@ int net_if_up(struct net_if *iface)
 
 	if (IS_ENABLED(CONFIG_NET_OFFLOAD) && net_if_is_ip_offloaded(iface)) {
 		net_if_flag_set(iface, NET_IF_UP);
-		goto exit;
 	}
 
 	/* If the L2 does not support enable just set the flag */
@@ -3372,7 +3371,6 @@ done:
 		net_ipv4_autoconf_start(iface);
 	}
 
-exit:
 	net_mgmt_event_notify(NET_EVENT_IF_UP, iface);
 
 	return 0;
@@ -3396,10 +3394,6 @@ int net_if_down(struct net_if *iface)
 	NET_DBG("iface %p", iface);
 
 	leave_mcast_all(iface);
-
-	if (net_if_is_ip_offloaded(iface)) {
-		goto done;
-	}
 
 	/* If the L2 does not support enable just clear the flag */
 	if (!net_if_l2(iface)->enable) {

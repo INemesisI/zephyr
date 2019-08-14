@@ -1158,6 +1158,11 @@ static ssize_t offload_send(int sock_fd, const void *buf, size_t len, int flags)
 	return offload_sendto(sock_fd, buf, len, flags, NULL, 0U);
 }
 
+static inline int offload_enable(bool state)
+{
+	return 0;
+}
+
 static const struct socket_offload modem_socket_offload = {
 	.socket = offload_socket,
 	.close = offload_close,
@@ -1168,6 +1173,7 @@ static const struct socket_offload modem_socket_offload = {
 	.recvfrom = offload_recvfrom,
 	.send = offload_send,
 	.sendto = offload_sendto,
+	.enable = offload_enable,
 };
 
 static int net_offload_dummy_get(sa_family_t family,
@@ -1175,7 +1181,6 @@ static int net_offload_dummy_get(sa_family_t family,
 				 enum net_ip_protocol ip_proto,
 				 struct net_context **context)
 {
-
 	LOG_ERR("NET_SOCKET_OFFLOAD must be configured for this driver");
 
 	return -ENOTSUP;
@@ -1328,6 +1333,16 @@ static int modem_init(struct device *dev)
 
 error:
 	return ret;
+}
+
+static inline int offload_enable(struct net_if *iface, bool state)
+{
+	if (state) {
+		LOG_INF("Interface up!");
+	} else {
+		LOG_INF("Interface down!");
+	}
+	return 0;
 }
 
 NET_DEVICE_OFFLOAD_INIT(modem_sara, CONFIG_MODEM_UBLOX_SARA_R4_NAME,
